@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,8 +73,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="moedaLabel" destination="OhV-Ou-Awk" id="3on-xZ-1eh"/>
-                                    <outlet property="variacaoLabel" destination="Ccc-5T-yDS" id="Swg-Uk-FBG"/>
+                                    <outlet property="currencyISO" destination="OhV-Ou-Awk" id="3on-xZ-1eh"/>
+                                    <outlet property="variationLabel" destination="Ccc-5T-yDS" id="Swg-Uk-FBG"/>
                                     <outlet property="view" destination="aMM-uD-u9L" id="0Kv-X0-nZ5"/>
                                 </connections>
                             </tableViewCell>
@@ -88,7 +89,157 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BmQ-hG-JrP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742.02898550724649" y="67.633928571428569"/>
+            <point key="canvasLocation" x="783" y="68"/>
+        </scene>
+        <!--Cambio View Controller-->
+        <scene sceneID="Xzj-2V-1UD">
+            <objects>
+                <viewController storyboardIdentifier="CambioViewController" id="696-c7-onW" customClass="CambioViewController" customModule="iOS___BRQ_Invest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b5b-m3-Jmq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfO-Km-hKW">
+                                <rect key="frame" x="24" y="68" width="366" height="167"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISO - NOME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syh-bU-DnQ">
+                                        <rect key="frame" x="16" y="15" width="295" height="31"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="2MD-v3-7KK"/>
+                                            <constraint firstAttribute="width" constant="295" id="ipn-Cd-2Ze"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,53%" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="Nmp-K7-V1a">
+                                        <rect key="frame" x="16" y="61" width="334" height="22.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                        <color key="textColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISO - NOME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op9-0H-dTp">
+                                        <rect key="frame" x="16" y="98" width="148" height="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="AZn-eb-7KD"/>
+                                            <constraint firstAttribute="width" constant="148" id="FbY-bW-ayc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISO - NOME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxA-71-Kdh">
+                                        <rect key="frame" x="16" y="130" width="148" height="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="56T-qQ-Oov"/>
+                                            <constraint firstAttribute="width" constant="148" id="xWf-jn-8wd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Op9-0H-dTp" firstAttribute="top" secondItem="SfO-Km-hKW" secondAttribute="top" constant="98" id="C3p-Gv-yAp"/>
+                                    <constraint firstItem="Op9-0H-dTp" firstAttribute="leading" secondItem="SfO-Km-hKW" secondAttribute="leading" constant="16" id="I5N-Xf-bTe"/>
+                                    <constraint firstItem="Nmp-K7-V1a" firstAttribute="top" secondItem="SfO-Km-hKW" secondAttribute="top" constant="61" id="JE7-mf-yWb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nmp-K7-V1a" secondAttribute="trailing" constant="16" id="KxO-Qe-PKc"/>
+                                    <constraint firstItem="MxA-71-Kdh" firstAttribute="top" secondItem="Op9-0H-dTp" secondAttribute="bottom" constant="15" id="TeZ-uE-8xV"/>
+                                    <constraint firstItem="syh-bU-DnQ" firstAttribute="top" secondItem="SfO-Km-hKW" secondAttribute="top" constant="15" id="dm3-fn-sNc"/>
+                                    <constraint firstItem="syh-bU-DnQ" firstAttribute="leading" secondItem="SfO-Km-hKW" secondAttribute="leading" constant="16" id="eJN-nC-LjB"/>
+                                    <constraint firstItem="MxA-71-Kdh" firstAttribute="leading" secondItem="SfO-Km-hKW" secondAttribute="leading" constant="16" id="fs0-1c-QY1"/>
+                                    <constraint firstItem="Nmp-K7-V1a" firstAttribute="leading" secondItem="SfO-Km-hKW" secondAttribute="leading" constant="16" id="vYm-74-0uO"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo disponível: R$ 1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFu-7o-Kod">
+                                <rect key="frame" x="24" y="267" width="327" height="27"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="327" id="Pfu-nR-5IN"/>
+                                    <constraint firstAttribute="height" constant="27" id="b5x-5U-cOe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Dollar em caixa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="326" translatesAutoresizingMaskIntoConstraints="NO" id="oTX-Cm-HT8">
+                                <rect key="frame" x="24" y="318" width="327" height="27"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="327" id="PHx-AK-xc7"/>
+                                    <constraint firstAttribute="height" constant="27" id="g2J-gr-9fm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantidade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yp1-pQ-k8x">
+                                <rect key="frame" x="24" y="369" width="327" height="54"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="LMN-5t-l5v"/>
+                                    <constraint firstAttribute="width" constant="327" id="UJP-s7-oYC"/>
+                                </constraints>
+                                <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-Ax-geI">
+                                <rect key="frame" x="24" y="559" width="151" height="43"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.55294117649999996" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="HGW-RR-IhZ"/>
+                                    <constraint firstAttribute="height" constant="43" id="oOf-w2-CEp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2">
+                                <rect key="frame" x="239" y="560" width="151" height="43"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.55294117647058827" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="1Tv-Z2-0Tz"/>
+                                    <constraint firstAttribute="height" constant="43" id="Rs4-wY-25i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                <state key="normal" title="COMPRAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QKj-gB-pMZ"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QKj-gB-pMZ" firstAttribute="trailing" secondItem="SfO-Km-hKW" secondAttribute="trailing" constant="24" id="C4O-dy-4e0"/>
+                            <constraint firstItem="QKj-gB-pMZ" firstAttribute="bottom" secondItem="SfO-Km-hKW" secondAttribute="bottom" constant="627" id="Kt9-0p-wxQ"/>
+                            <constraint firstItem="SfO-Km-hKW" firstAttribute="top" secondItem="QKj-gB-pMZ" secondAttribute="top" constant="24" id="NR4-SM-bIh"/>
+                            <constraint firstItem="SfO-Km-hKW" firstAttribute="leading" secondItem="QKj-gB-pMZ" secondAttribute="leading" constant="24" id="Nk0-7N-oxa"/>
+                            <constraint firstItem="QKj-gB-pMZ" firstAttribute="trailing" secondItem="sgZ-AT-iu2" secondAttribute="trailing" constant="24" id="R3Y-9a-0XG"/>
+                            <constraint firstItem="UFu-7o-Kod" firstAttribute="leading" secondItem="QKj-gB-pMZ" secondAttribute="leading" constant="24" id="TVi-36-0Sm"/>
+                            <constraint firstItem="SfO-Km-hKW" firstAttribute="centerX" secondItem="b5b-m3-Jmq" secondAttribute="centerX" id="UPY-hp-Dmc"/>
+                            <constraint firstItem="oTX-Cm-HT8" firstAttribute="leading" secondItem="QKj-gB-pMZ" secondAttribute="leading" constant="24" id="ZEl-qf-OmH"/>
+                            <constraint firstItem="oTX-Cm-HT8" firstAttribute="top" secondItem="UFu-7o-Kod" secondAttribute="bottom" constant="24" id="ZKZ-YN-gXM"/>
+                            <constraint firstItem="Yp1-pQ-k8x" firstAttribute="leading" secondItem="QKj-gB-pMZ" secondAttribute="leading" constant="24" id="aeJ-wP-Zaj"/>
+                            <constraint firstItem="8h4-Ax-geI" firstAttribute="leading" secondItem="QKj-gB-pMZ" secondAttribute="leading" constant="24" id="bNg-b9-6lb"/>
+                            <constraint firstItem="Yp1-pQ-k8x" firstAttribute="top" secondItem="oTX-Cm-HT8" secondAttribute="bottom" constant="24" id="ewp-CS-edG"/>
+                            <constraint firstItem="UFu-7o-Kod" firstAttribute="top" secondItem="SfO-Km-hKW" secondAttribute="bottom" constant="32" id="fjG-d7-n9y"/>
+                            <constraint firstItem="sgZ-AT-iu2" firstAttribute="top" secondItem="Yp1-pQ-k8x" secondAttribute="bottom" constant="137" id="sdC-Fj-jmz"/>
+                            <constraint firstItem="8h4-Ax-geI" firstAttribute="top" secondItem="Yp1-pQ-k8x" secondAttribute="bottom" constant="136" id="tP6-qH-lcL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3lk-SZ-yBv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xd4-sP-2MW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6nF-lk-C6g">

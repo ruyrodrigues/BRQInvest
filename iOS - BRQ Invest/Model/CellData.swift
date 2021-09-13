@@ -10,7 +10,7 @@ import UIKit
 class CellData: UITableViewCell {
 
     @IBOutlet weak var view: UIView!
-    @IBOutlet weak var moedaLabel: UILabel!
-    @IBOutlet weak var variacaoLabel: UILabel!
+    @IBOutlet weak var currencyISO: UILabel!
+    @IBOutlet weak var variationLabel: UILabel!
     
 }

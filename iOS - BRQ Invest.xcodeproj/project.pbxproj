@@ -15,6 +15,7 @@
 		CE75ABFE26EA8F6D00C86246 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75ABFC26EA8F6D00C86246 /* LaunchScreen.storyboard */; };
 		CE75AC0626EA9BA800C86246 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75AC0526EA9BA800C86246 /* CellData.swift */; };
 		CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */; };
+		CEA75B2926EF9CE1001A0753 /* CambioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75B2826EF9CE1001A0753 /* CambioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CE75ABFF26EA8F6D00C86246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE75AC0526EA9BA800C86246 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
+		CEA75B2826EF9CE1001A0753 /* CambioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CambioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				CEA75B1926EBAA1D001A0753 /* View */,
 				CEA75B1A26EBAA21001A0753 /* Controller */,
 				CEA75B2726EF9988001A0753 /* Others */,
+				CE75ABFF26EA8F6D00C86246 /* Info.plist */,
 			);
 			path = "iOS - BRQ Invest";
 			sourceTree = "<group>";
@@ -89,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				CE75ABF526EA8F6A00C86246 /* HomeViewController.swift */,
+				CEA75B2826EF9CE1001A0753 /* CambioViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -100,7 +104,6 @@
 				CE75ABF326EA8F6A00C86246 /* SceneDelegate.swift */,
 				CE75ABFA26EA8F6D00C86246 /* Assets.xcassets */,
 				CE75ABFC26EA8F6D00C86246 /* LaunchScreen.storyboard */,
-				CE75ABFF26EA8F6D00C86246 /* Info.plist */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				CE75ABF626EA8F6A00C86246 /* HomeViewController.swift in Sources */,
 				CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */,
 				CE75AC0626EA9BA800C86246 /* CellData.swift in Sources */,
+				CEA75B2926EF9CE1001A0753 /* CambioViewController.swift in Sources */,
 				CE75ABF226EA8F6A00C86246 /* AppDelegate.swift in Sources */,
 				CE75ABF426EA8F6A00C86246 /* SceneDelegate.swift in Sources */,
 			);
