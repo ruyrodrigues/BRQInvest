@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		CE75ABF226EA8F6A00C86246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF126EA8F6A00C86246 /* AppDelegate.swift */; };
 		CE75ABF426EA8F6A00C86246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF326EA8F6A00C86246 /* SceneDelegate.swift */; };
-		CE75ABF626EA8F6A00C86246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF526EA8F6A00C86246 /* ViewController.swift */; };
+		CE75ABF626EA8F6A00C86246 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF526EA8F6A00C86246 /* HomeViewController.swift */; };
 		CE75ABF926EA8F6A00C86246 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75ABF726EA8F6A00C86246 /* Main.storyboard */; };
 		CE75ABFB26EA8F6D00C86246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75ABFA26EA8F6D00C86246 /* Assets.xcassets */; };
 		CE75ABFE26EA8F6D00C86246 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75ABFC26EA8F6D00C86246 /* LaunchScreen.storyboard */; };
-		CE75AC0626EA9BA800C86246 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75AC0526EA9BA800C86246 /* Cell.swift */; };
+		CE75AC0626EA9BA800C86246 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75AC0526EA9BA800C86246 /* CellData.swift */; };
+		CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE75ABEE26EA8F6A00C86246 /* iOS - BRQ Invest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS - BRQ Invest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75ABF126EA8F6A00C86246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE75ABF326EA8F6A00C86246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE75ABF526EA8F6A00C86246 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE75ABF526EA8F6A00C86246 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE75ABF826EA8F6A00C86246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE75ABFA26EA8F6D00C86246 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE75ABFD26EA8F6D00C86246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE75ABFF26EA8F6D00C86246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE75AC0526EA9BA800C86246 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		CE75AC0526EA9BA800C86246 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,49 @@
 		CE75ABF026EA8F6A00C86246 /* iOS - BRQ Invest */ = {
 			isa = PBXGroup;
 			children = (
+				CEA75B1826EBAA18001A0753 /* Model */,
+				CEA75B1926EBAA1D001A0753 /* View */,
+				CEA75B1A26EBAA21001A0753 /* Controller */,
+				CEA75B2726EF9988001A0753 /* Others */,
+			);
+			path = "iOS - BRQ Invest";
+			sourceTree = "<group>";
+		};
+		CEA75B1826EBAA18001A0753 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE75AC0526EA9BA800C86246 /* CellData.swift */,
+				CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEA75B1926EBAA1D001A0753 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE75ABF726EA8F6A00C86246 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEA75B1A26EBAA21001A0753 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE75ABF526EA8F6A00C86246 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEA75B2726EF9988001A0753 /* Others */ = {
+			isa = PBXGroup;
+			children = (
 				CE75ABF126EA8F6A00C86246 /* AppDelegate.swift */,
 				CE75ABF326EA8F6A00C86246 /* SceneDelegate.swift */,
-				CE75ABF526EA8F6A00C86246 /* ViewController.swift */,
-				CE75AC0526EA9BA800C86246 /* Cell.swift */,
-				CE75ABF726EA8F6A00C86246 /* Main.storyboard */,
 				CE75ABFA26EA8F6D00C86246 /* Assets.xcassets */,
 				CE75ABFC26EA8F6D00C86246 /* LaunchScreen.storyboard */,
 				CE75ABFF26EA8F6D00C86246 /* Info.plist */,
 			);
-			path = "iOS - BRQ Invest";
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE75ABF626EA8F6A00C86246 /* ViewController.swift in Sources */,
-				CE75AC0626EA9BA800C86246 /* Cell.swift in Sources */,
+				CE75ABF626EA8F6A00C86246 /* HomeViewController.swift in Sources */,
+				CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */,
+				CE75AC0626EA9BA800C86246 /* CellData.swift in Sources */,
 				CE75ABF226EA8F6A00C86246 /* AppDelegate.swift in Sources */,
 				CE75ABF426EA8F6A00C86246 /* SceneDelegate.swift in Sources */,
 			);
@@ -300,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Ruy.iOS---BRQ-Invest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,7 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Ruy.iOS---BRQ-Invest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -2,12 +2,12 @@
 //  TableViewCell.swift
 //  iOS - BRQ Invest
 //
-//  Created by user on 09/09/21.
+//  Created by Ruy on 09/09/21.
 //
 
 import UIKit
 
-class Cell: UITableViewCell {
+class CellData: UITableViewCell {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var moedaLabel: UILabel!
