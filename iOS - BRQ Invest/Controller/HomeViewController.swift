@@ -13,7 +13,7 @@ class HomeViewController: UITableViewController {
     
     var timer: Timer?
     
-    let urlAPI = "https://api.hgbrasil.com/finance?array_limit=1&fields=only_results,currencies&key=a6cb5965"
+    let urlAPI = "https://api.hgbrasil.com/finance?&key=a6cb5965"
     
     var currencies = [Currency]()
     
@@ -52,7 +52,7 @@ class HomeViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CellData else { fatalError() }
         
         settingLabels(cell, for: indexPath)
-        setViewBorder(cell)
+        cell.cellView.setBorderView()
         
         return cell
     }
@@ -94,21 +94,14 @@ class HomeViewController: UITableViewController {
         }
         
         if currency.variation > 0.0 {
-            cell.variationLabel.textColor = UIColor(red: 126.0, green: 211.0, blue: 33.0, alpha: 1.0)
+            cell.variationLabel.textColor = UIColor.systemGreen
         } else if currency.variation == 0.0 {
-            cell.variationLabel.textColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
+            cell.variationLabel.textColor = UIColor.white
         } else {
             cell.variationLabel.textColor = UIColor.systemRed
         }
         
         cell.variationLabel.text = String(format: "%.2f", currency.variation) + "%"
-    }
-    
-    func setViewBorder(_ cell: CellData) {
-        cell.view.layer.masksToBounds = true
-        cell.view.layer.borderWidth = 2
-        cell.view.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
-        cell.view.layer.cornerRadius = 10
     }
     
     
@@ -133,20 +126,20 @@ class HomeViewController: UITableViewController {
     
     @objc func parseJSON(_ financeData: Data){
         let decoder = JSONDecoder()
-        
+        print(financeData)
         do {
-            let decodedData = try decoder.decode(Results.self, from: financeData)
+            let decodedData = try decoder.decode(FinanceData.self, from: financeData)
             print(decodedData)
             currencies = [
-                decodedData.currencies.USD,
-                decodedData.currencies.EUR,
-                decodedData.currencies.ARS,
-                decodedData.currencies.AUD,
-                decodedData.currencies.BTC,
-                decodedData.currencies.CAD,
-                decodedData.currencies.CNY,
-                decodedData.currencies.GBP,
-                decodedData.currencies.JPY
+                decodedData.results.currencies.USD,
+                decodedData.results.currencies.EUR,
+                decodedData.results.currencies.ARS,
+                decodedData.results.currencies.AUD,
+                decodedData.results.currencies.BTC,
+                decodedData.results.currencies.CAD,
+                decodedData.results.currencies.CNY,
+                decodedData.results.currencies.GBP,
+                decodedData.results.currencies.JPY
             ]
             DispatchQueue.main.async {
                 self.tableView.reloadData()

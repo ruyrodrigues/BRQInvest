@@ -7,19 +7,23 @@
 
 import Foundation
 
+struct FinanceData: Codable {
+    let results: Results
+}
+
 struct Results: Codable {
     let currencies: Currencies
 }
 
 struct Currencies: Codable {
     let source: String
-    let USD, EUR, GBP, ARS, CAD, AUD, JPY, CNY, BTC: Currency
+    let USD, EUR, GBP, ARS, AUD, BTC, CAD, CNY, JPY: Currency
 }
 
 struct Currency: Codable {
 
-    let buy: Double
     let name: String
+    let buy: Double?
     let sell: Double?
     let variation: Double
     

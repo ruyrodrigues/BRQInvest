@@ -9,8 +9,9 @@ import UIKit
 
 class CellData: UITableViewCell {
 
-    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var cellView: UICustomView!
     @IBOutlet weak var currencyISO: UILabel!
     @IBOutlet weak var variationLabel: UILabel!
+    
     
 }
