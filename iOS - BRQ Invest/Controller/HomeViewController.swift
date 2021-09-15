@@ -101,7 +101,7 @@ class HomeViewController: UITableViewController {
             cell.variationLabel.textColor = UIColor.systemRed
         }
         
-        cell.variationLabel.text = String(format: "%.2f", currency.variation) + "%"
+        cell.variationLabel.text = currency.variationString
     }
     
     

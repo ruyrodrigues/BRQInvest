@@ -116,22 +116,20 @@
                                         <color key="textColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISO - NOME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op9-0H-dTp">
-                                        <rect key="frame" x="16" y="96.5" width="148" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compra:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op9-0H-dTp">
+                                        <rect key="frame" x="16" y="96.5" width="334" height="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="148" id="hnf-9b-tSf"/>
                                             <constraint firstAttribute="height" constant="17" id="sxg-Wl-i5A"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISO - NOME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxA-71-Kdh">
-                                        <rect key="frame" x="16" y="128.5" width="148" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venda:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxA-71-Kdh">
+                                        <rect key="frame" x="16" y="128.5" width="334" height="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="148" id="FXQ-Du-cwN"/>
                                             <constraint firstAttribute="height" constant="17" id="oZI-uo-Q3A"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
@@ -153,7 +151,9 @@
                                     <constraint firstAttribute="trailing" secondItem="Nmp-K7-V1a" secondAttribute="trailing" constant="16" id="iIO-i7-d5i"/>
                                     <constraint firstItem="Nmp-K7-V1a" firstAttribute="top" secondItem="syh-bU-DnQ" secondAttribute="bottom" constant="15" id="nrg-4J-7CS"/>
                                     <constraint firstItem="Op9-0H-dTp" firstAttribute="top" secondItem="Nmp-K7-V1a" secondAttribute="bottom" constant="19" id="oeg-es-Yg5"/>
+                                    <constraint firstAttribute="trailing" secondItem="MxA-71-Kdh" secondAttribute="trailing" constant="16" id="ohN-KX-bh6"/>
                                     <constraint firstItem="Nmp-K7-V1a" firstAttribute="leading" secondItem="SfO-Km-hKW" secondAttribute="leading" constant="16" id="tmO-xb-Ur8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Op9-0H-dTp" secondAttribute="trailing" constant="16" id="wNl-Ad-G8c"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo disponível: R$ 1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFu-7o-Kod">
@@ -178,16 +178,19 @@
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-Ax-geI">
-                                <rect key="frame" x="24" y="783" width="171" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-Ax-geI" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
+                                <rect key="frame" x="24" y="772" width="171" height="50"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.55294117649999996" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8xb-LA-8Te"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
                                 <state key="normal" title="VENDER">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2">
-                                <rect key="frame" x="219" y="783" width="171" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
+                                <rect key="frame" x="219" y="772" width="171" height="50"/>
                                 <color key="backgroundColor" red="0.23529411764705882" green="0.55294117647058827" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
                                 <state key="normal" title="COMPRAR">
@@ -212,6 +215,7 @@
                             <constraint firstItem="QKj-gB-pMZ" firstAttribute="trailing" secondItem="oTX-Cm-HT8" secondAttribute="trailing" constant="24" id="XGq-Vu-TlF"/>
                             <constraint firstItem="SfO-Km-hKW" firstAttribute="top" secondItem="QKj-gB-pMZ" secondAttribute="top" constant="24" id="Yyq-28-JpI"/>
                             <constraint firstItem="oTX-Cm-HT8" firstAttribute="top" secondItem="UFu-7o-Kod" secondAttribute="bottom" constant="24" id="b2g-kt-RQi"/>
+                            <constraint firstItem="8h4-Ax-geI" firstAttribute="height" secondItem="sgZ-AT-iu2" secondAttribute="height" id="dEm-h0-ES7"/>
                             <constraint firstItem="QKj-gB-pMZ" firstAttribute="trailing" secondItem="sgZ-AT-iu2" secondAttribute="trailing" constant="24" id="oZ4-68-qK8"/>
                             <constraint firstItem="Yp1-pQ-k8x" firstAttribute="top" secondItem="oTX-Cm-HT8" secondAttribute="bottom" constant="24" id="piS-BW-gW0"/>
                             <constraint firstItem="UFu-7o-Kod" firstAttribute="leading" secondItem="QKj-gB-pMZ" secondAttribute="leading" constant="24" id="xL2-uf-kyK"/>
@@ -221,9 +225,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="3lk-SZ-yBv"/>
                     <connections>
+                        <outlet property="buyButton" destination="sgZ-AT-iu2" id="Dma-Ju-r8f"/>
+                        <outlet property="buyPriceLabel" destination="Op9-0H-dTp" id="XtX-HM-fKe"/>
                         <outlet property="cambioView" destination="SfO-Km-hKW" id="nAb-9x-P0z"/>
                         <outlet property="currencyNameLabel" destination="syh-bU-DnQ" id="4i6-FV-9Z3"/>
                         <outlet property="currencyVariationLabel" destination="Nmp-K7-V1a" id="WV6-DB-QgX"/>
+                        <outlet property="sellButton" destination="8h4-Ax-geI" id="W0p-fq-GZ8"/>
+                        <outlet property="sellPriceLabel" destination="MxA-71-Kdh" id="ecZ-I3-ypy"/>
+                        <outlet property="userBalanceLabel" destination="oTX-Cm-HT8" id="nXJ-PW-1sZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xd4-sP-2MW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

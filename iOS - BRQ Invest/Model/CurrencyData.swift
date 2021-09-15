@@ -27,5 +27,38 @@ struct Currency: Codable {
     let sell: Double?
     let variation: Double
     
+    var variationString: String {
+        return String(format: "%.2f", variation) + "%"
+    }
+    
+    var buyString: String {
+        if let buy = buy {
+            let NSNumberBuy = NSNumber(value: buy)
+            let formatter = setFormatter()
+            if let result = formatter.string(from: NSNumberBuy) {
+                return result
+            }
+        }
+        return "R$0.00"
+    }
+    
+    var sellString: String {
+        if let sell = sell {
+            let NSNumberSell = NSNumber(value: sell)
+            let formatter = setFormatter()
+            if let result = formatter.string(from: NSNumberSell) {
+                return result
+            }
+        }
+        return "R$0.00"
+    }
+    
+    func setFormatter() -> NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = "BRL"
+        return formatter
+    }
+    
 }
 
