@@ -16,7 +16,6 @@ class HomeViewController: UITableViewController {
     let urlAPI = "https://api.hgbrasil.com/finance?array_limit=1&fields=only_results,currencies&key=a6cb5965"
     
     var currencies = [Currency]()
-    var currencies2 = [Currency2]()
     
     let user = User()
     
@@ -25,7 +24,6 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         title = "Moedas"
         performRequest()
-        print(currencies2)
         timer = Timer.scheduledTimer(withTimeInterval: 216, repeats: true) { [weak self] _ in
             self?.performRequest()
         }
@@ -122,45 +120,16 @@ class HomeViewController: UITableViewController {
             }
             if let safeData = data {
                 self.parseJSON(safeData)
-                self.parseJSON2(safeData)
             }
         }
         task.resume()
     }
     
-    func parseJSON2(_ data: Data) {
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
-        
-        if let jsonDictionary = json as? [String: Any] {
-            if let currencies = jsonDictionary["currencies"] as? [String: Any] {
-                for (iso, value) in currencies {
-                    print(iso)
-                    if let result = value as? [String: Any] {
-                        var sell: Double?
-                        guard let name = result["name"] as? String else { return }
-                        guard let buy = result["buy"] as? Double? else { return }
-                        if let selling = result["sell"] as? Double? {
-                            sell = selling
-                        } else {
-                            sell = nil
-                        }
-                        guard let variation = result["variation"] as? Double else { return }
-                        let currency = Currency2(name: name, buy: buy, sell: sell, variation: variation, iso: iso)
-                        print(currency)
-                        currencies2.append(currency)
-                    }
-                }
-                print(currencies2)
-            }
-        }
-    }
     
-    
-    func parseJSON(_ financeData: Data){
+    func parseJSON(_ financeData: Data) {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(Results.self, from: financeData)
-//            print(decodedData)
             currencies = [
                 decodedData.currencies.USD,
                 decodedData.currencies.EUR,

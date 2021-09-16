@@ -59,6 +59,7 @@ struct Currency: Codable {
     }
 }
 
+
 struct Currency2: Codable {
     var name: String
     var buy: Double?
