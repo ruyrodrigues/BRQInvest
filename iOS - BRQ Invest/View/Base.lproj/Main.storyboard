@@ -176,7 +176,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h4-Ax-geI" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
                                 <rect key="frame" x="24" y="772" width="171" height="50"/>
@@ -188,14 +188,20 @@
                                 <state key="normal" title="VENDER">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ButtonPressed:" destination="696-c7-onW" eventType="touchUpInside" id="8Co-Zf-jcI"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
                                 <rect key="frame" x="219" y="772" width="171" height="50"/>
                                 <color key="backgroundColor" red="0.23529411764705882" green="0.55294117647058827" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
                                 <state key="normal" title="COMPRAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ButtonPressed:" destination="696-c7-onW" eventType="touchUpInside" id="r96-D5-RE1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QKj-gB-pMZ"/>
@@ -230,9 +236,10 @@
                         <outlet property="cambioView" destination="SfO-Km-hKW" id="nAb-9x-P0z"/>
                         <outlet property="currencyNameLabel" destination="syh-bU-DnQ" id="4i6-FV-9Z3"/>
                         <outlet property="currencyVariationLabel" destination="Nmp-K7-V1a" id="WV6-DB-QgX"/>
-                        <outlet property="sellButton" destination="8h4-Ax-geI" id="W0p-fq-GZ8"/>
+                        <outlet property="sellButton" destination="8h4-Ax-geI" id="qZK-W7-LMB"/>
                         <outlet property="sellPriceLabel" destination="MxA-71-Kdh" id="ecZ-I3-ypy"/>
-                        <outlet property="userBalanceLabel" destination="oTX-Cm-HT8" id="nXJ-PW-1sZ"/>
+                        <outlet property="userBalanceLabel" destination="UFu-7o-Kod" id="jaj-cl-Wmn"/>
+                        <outlet property="userCurrencyBalanceLabel" destination="oTX-Cm-HT8" id="nXJ-PW-1sZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xd4-sP-2MW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

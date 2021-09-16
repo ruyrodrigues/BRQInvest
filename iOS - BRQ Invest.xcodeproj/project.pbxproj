@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE14EFFA26F239CA00190390 /* UICustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14EFF926F239CA00190390 /* UICustomView.swift */; };
 		CE14EFFC26F23ECB00190390 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14EFFB26F23ECB00190390 /* UICustomButton.swift */; };
+		CE14EFFE26F2681300190390 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14EFFD26F2681300190390 /* UserData.swift */; };
 		CE75ABF226EA8F6A00C86246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF126EA8F6A00C86246 /* AppDelegate.swift */; };
 		CE75ABF426EA8F6A00C86246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF326EA8F6A00C86246 /* SceneDelegate.swift */; };
 		CE75ABF626EA8F6A00C86246 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75ABF526EA8F6A00C86246 /* HomeViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		CE14EFF926F239CA00190390 /* UICustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomView.swift; sourceTree = "<group>"; };
 		CE14EFFB26F23ECB00190390 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
+		CE14EFFD26F2681300190390 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		CE75ABEE26EA8F6A00C86246 /* iOS - BRQ Invest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS - BRQ Invest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75ABF126EA8F6A00C86246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE75ABF326EA8F6A00C86246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,9 +81,10 @@
 			isa = PBXGroup;
 			children = (
 				CE14EFF926F239CA00190390 /* UICustomView.swift */,
+				CE14EFFB26F23ECB00190390 /* UICustomButton.swift */,
 				CE75AC0526EA9BA800C86246 /* CellData.swift */,
 				CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */,
-				CE14EFFB26F23ECB00190390 /* UICustomButton.swift */,
+				CE14EFFD26F2681300190390 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				CE75ABF626EA8F6A00C86246 /* HomeViewController.swift in Sources */,
 				CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */,
 				CE14EFFA26F239CA00190390 /* UICustomView.swift in Sources */,
+				CE14EFFE26F2681300190390 /* UserData.swift in Sources */,
 				CE75AC0626EA9BA800C86246 /* CellData.swift in Sources */,
 				CE14EFFC26F23ECB00190390 /* UICustomButton.swift in Sources */,
 				CEA75B2926EF9CE1001A0753 /* CambioViewController.swift in Sources */,

@@ -13,16 +13,19 @@ class HomeViewController: UITableViewController {
     
     var timer: Timer?
     
-    let urlAPI = "https://api.hgbrasil.com/finance?&key=a6cb5965"
+    let urlAPI = "https://api.hgbrasil.com/finance?array_limit=1&fields=only_results,currencies&key=a6cb5965"
     
     var currencies = [Currency]()
+    var currencies2 = [Currency2]()
+    
+    let user = User()
     
     //MARK: - ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Moedas"
         performRequest()
-        
+        print(currencies2)
         timer = Timer.scheduledTimer(withTimeInterval: 216, repeats: true) { [weak self] _ in
             self?.performRequest()
         }
@@ -60,6 +63,7 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cambioVC = storyboard?.instantiateViewController(identifier: "CambioViewController") as? CambioViewController {
             cambioVC.currencySelected = currencies[indexPath.section]
+            cambioVC.user = user
             navigationController?.pushViewController(cambioVC, animated: true)
         }
     }
@@ -69,7 +73,6 @@ class HomeViewController: UITableViewController {
     
     func settingLabels(_ cell: CellData, for indexPath: IndexPath) {
         let currency = currencies[indexPath.section]
-        print("\(currency.self)")
         switch currency.name {
         case "Dollar":
             cell.currencyISO.text = "USD"
@@ -107,7 +110,7 @@ class HomeViewController: UITableViewController {
     
     //MARK: - Requesting API
     
-    @objc func performRequest() {
+    func performRequest() {
         guard let url = URL(string: urlAPI) else { return }
         let session = URLSession(configuration: .default)
         
@@ -119,27 +122,55 @@ class HomeViewController: UITableViewController {
             }
             if let safeData = data {
                 self.parseJSON(safeData)
+                self.parseJSON2(safeData)
             }
         }
         task.resume()
     }
     
-    @objc func parseJSON(_ financeData: Data){
+    func parseJSON2(_ data: Data) {
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
+        
+        if let jsonDictionary = json as? [String: Any] {
+            if let currencies = jsonDictionary["currencies"] as? [String: Any] {
+                for (iso, value) in currencies {
+                    print(iso)
+                    if let result = value as? [String: Any] {
+                        var sell: Double?
+                        guard let name = result["name"] as? String else { return }
+                        guard let buy = result["buy"] as? Double? else { return }
+                        if let selling = result["sell"] as? Double? {
+                            sell = selling
+                        } else {
+                            sell = nil
+                        }
+                        guard let variation = result["variation"] as? Double else { return }
+                        let currency = Currency2(name: name, buy: buy, sell: sell, variation: variation, iso: iso)
+                        print(currency)
+                        currencies2.append(currency)
+                    }
+                }
+                print(currencies2)
+            }
+        }
+    }
+    
+    
+    func parseJSON(_ financeData: Data){
         let decoder = JSONDecoder()
-        print(financeData)
         do {
-            let decodedData = try decoder.decode(FinanceData.self, from: financeData)
-            print(decodedData)
+            let decodedData = try decoder.decode(Results.self, from: financeData)
+//            print(decodedData)
             currencies = [
-                decodedData.results.currencies.USD,
-                decodedData.results.currencies.EUR,
-                decodedData.results.currencies.ARS,
-                decodedData.results.currencies.AUD,
-                decodedData.results.currencies.BTC,
-                decodedData.results.currencies.CAD,
-                decodedData.results.currencies.CNY,
-                decodedData.results.currencies.GBP,
-                decodedData.results.currencies.JPY
+                decodedData.currencies.USD,
+                decodedData.currencies.EUR,
+                decodedData.currencies.ARS,
+                decodedData.currencies.AUD,
+                decodedData.currencies.BTC,
+                decodedData.currencies.CAD,
+                decodedData.currencies.CNY,
+                decodedData.currencies.GBP,
+                decodedData.currencies.JPY
             ]
             DispatchQueue.main.async {
                 self.tableView.reloadData()
