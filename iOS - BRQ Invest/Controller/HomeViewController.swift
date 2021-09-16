@@ -62,6 +62,9 @@ class HomeViewController: UITableViewController {
         if let cambioVC = storyboard?.instantiateViewController(identifier: "CambioViewController") as? CambioViewController {
             cambioVC.currencySelected = currencies[indexPath.section]
             cambioVC.user = user
+            guard let cell = tableView.cellForRow(at: indexPath) as? CellData else { return }
+            guard let currencyISO = cell.currencyISO.text else { return }
+            cambioVC.currencyISO = currencyISO
             navigationController?.pushViewController(cambioVC, animated: true)
         }
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CambioViewController: UIViewController {
+class CambioViewController: UIViewController, UITextFieldDelegate {
     
     // IBOutlets
     @IBOutlet var cambioView: UICustomView!
@@ -23,22 +23,37 @@ class CambioViewController: UIViewController {
     @IBOutlet weak var sellButton: UICustomButton!
     @IBOutlet weak var buyButton: UICustomButton!
     
+    @IBOutlet weak var AmountTextField: UITextField!
+    
+    
     // Proprieties
     var currencySelected: Currency?
+    var currencyISO = String()
     var user: User?
     
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        AmountTextField.delegate = self
         title = "Câmbio"
-        settingCustomBorders()
-        settingLabels()
+        setCustomBorders()
+        setLabels()
+        setTextField()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
-    func settingLabels() {
+    
+    func setTextField() {
+        AmountTextField.attributedPlaceholder =
+            NSAttributedString(string: "Quantidade", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+    }
+    
+    func setLabels() {
         guard let currency = currencySelected else { return }
         guard let user = user else { return }
+        guard let userCurrencyAmount = user.userWallet[currencyISO] else { return }
         
         currencyNameLabel.text = currency.name
         currencyVariationLabel.text = currency.variationString
@@ -53,11 +68,11 @@ class CambioViewController: UIViewController {
         buyPriceLabel.text = ("Compra: " + currency.buyString)
         sellPriceLabel.text = ("Venda: " + currency.sellString)
         
-        userCurrencyBalanceLabel.text = ("0 \(currency.name) em caixa")
+        userCurrencyBalanceLabel.text = ("\(userCurrencyAmount) \(currencyISO) em caixa")
         userBalanceLabel.text = ("Saldo disponível: \(user.balanceLabel)")
     }
     
-    func settingCustomBorders() {
+    func setCustomBorders() {
         cambioView.setBorderView()
         sellButton.settingButton()
         buyButton.settingButton()
@@ -66,16 +81,23 @@ class CambioViewController: UIViewController {
     // @IBAction
     @IBAction func ButtonPressed(_ sender: UICustomButton) {
         guard let user = user else { return }
+        guard let currency = currencySelected else { return }
+        guard let stringInputAmount = AmountTextField.text else { return }
+        guard let intInputAmount = Int(stringInputAmount) else { return }
         
         if sender.tag == 0 {
             //sell button
             user.balance += 10
         } else {
             //buy button
-            user.balance -= 10
+            user.buy(quantity: intInputAmount, currencyISO, currency)
         }
         
-        settingLabels()
+        setLabels()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     

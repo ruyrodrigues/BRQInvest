@@ -62,6 +62,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="aMM-uD-u9L" firstAttribute="leading" secondItem="wfQ-Ow-oav" secondAttribute="leading" constant="43.5" id="2K3-GC-8mA"/>
                                         <constraint firstItem="aMM-uD-u9L" firstAttribute="top" secondItem="wfQ-Ow-oav" secondAttribute="top" id="MNV-CU-UYf"/>
@@ -174,7 +175,7 @@
                                 <rect key="frame" x="24" y="373" width="366" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                             </textField>
@@ -231,6 +232,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3lk-SZ-yBv"/>
                     <connections>
+                        <outlet property="AmountTextField" destination="Yp1-pQ-k8x" id="Llf-PM-a1e"/>
                         <outlet property="buyButton" destination="sgZ-AT-iu2" id="Dma-Ju-r8f"/>
                         <outlet property="buyPriceLabel" destination="Op9-0H-dTp" id="XtX-HM-fKe"/>
                         <outlet property="cambioView" destination="SfO-Km-hKW" id="nAb-9x-P0z"/>
