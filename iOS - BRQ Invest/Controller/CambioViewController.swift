@@ -37,14 +37,16 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         AmountTextField.delegate = self
         title = "Câmbio"
+        
         setCustomBorders()
         setLabels()
         setTextField()
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    
+    //MARK: - Settings
     func setTextField() {
         AmountTextField.attributedPlaceholder =
             NSAttributedString(string: "Quantidade", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
@@ -57,6 +59,7 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         
         currencyNameLabel.text = currency.name
         currencyVariationLabel.text = currency.variationString
+        
         if currency.variation > 0 {
             currencyVariationLabel.textColor = UIColor.systemGreen
         } else if currency.variation < 0 {
@@ -70,12 +73,62 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         
         userCurrencyBalanceLabel.text = ("\(userCurrencyAmount) \(currencyISO) em caixa")
         userBalanceLabel.text = ("Saldo disponível: \(user.balanceLabel)")
+        
+        checkButtonDisponility(buyButton, user, currency, iso: currencyISO)
+        checkButtonDisponility(sellButton, user, currency, iso: currencyISO)
+        
+        AmountTextField.text = ""
     }
     
     func setCustomBorders() {
         cambioView.setBorderView()
         sellButton.settingButton()
         buyButton.settingButton()
+    }
+    
+    
+    func checkButtonDisponility(_ button: UICustomButton, _ user: User, _ currency: Currency, iso: String) {
+        guard let currencyBuyPrice = currency.buy else { return }
+        guard let currencyAmountInWallet = user.userWallet[iso] else { return }
+        guard let stringInputAmount = AmountTextField.text else { return }
+        
+        var totalPrice = Double()
+        var userInput = Int()
+        
+        if let intInputAmount = Int(stringInputAmount) {
+            userInput = intInputAmount
+            totalPrice = currencyBuyPrice * Double(intInputAmount)
+        }
+        
+        if button.tag == 1 {
+            // buy button
+            if (user.balance < currencyBuyPrice || user.balance < totalPrice) {
+                button.disable()
+            } else {
+                button.enable()
+            }
+        } else {
+            // sell button
+            if (userInput > currencyAmountInWallet || currency.sell == nil || currencyAmountInWallet == 0) {
+                button.disable()
+            } else {
+                button.enable()
+            }
+        }
+        
+        if (stringInputAmount.isEmpty || userInput == 0) {
+            button.disable()
+        }
+    }
+
+    //MARK: TextFieldDelegate
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let currency = currencySelected else { return }
+        guard let user = user else { return }
+        
+        checkButtonDisponility(buyButton, user, currency, iso: currencyISO)
+        checkButtonDisponility(sellButton, user, currency, iso: currencyISO)
+        
     }
     
     // @IBAction
@@ -87,7 +140,7 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         
         if sender.tag == 0 {
             //sell button
-            user.balance += 10
+            user.sell(quantity: intInputAmount, currencyISO, currency)
         } else {
             //buy button
             user.buy(quantity: intInputAmount, currencyISO, currency)
@@ -99,6 +152,5 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
     
 }

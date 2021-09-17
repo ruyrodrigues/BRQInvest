@@ -193,7 +193,7 @@
                                     <action selector="ButtonPressed:" destination="696-c7-onW" eventType="touchUpInside" id="8Co-Zf-jcI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-AT-iu2" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
                                 <rect key="frame" x="219" y="772" width="171" height="50"/>
                                 <color key="backgroundColor" red="0.23529411764705882" green="0.55294117647058827" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>

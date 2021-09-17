@@ -14,4 +14,14 @@ class UICustomButton: UIButton {
         self.layer.cornerRadius = 15
     }
     
+    func disable() {
+        self.isEnabled = false
+        self.alpha = 0.45
+    }
+    
+    func enable(){
+        self.isEnabled = true
+        self.alpha = 1
+    }
+    
 }
