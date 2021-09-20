@@ -10,7 +10,7 @@
         <!--Home View Controller-->
         <scene sceneID="GcE-rN-SUQ">
             <objects>
-                <tableViewController id="QOx-nX-8Me" customClass="HomeViewController" customModule="iOS___BRQ_Invest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="homeViewController" id="QOx-nX-8Me" customClass="HomeViewController" customModule="iOS___BRQ_Invest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="FDw-Bf-a2H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,6 +247,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xd4-sP-2MW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1594" y="68"/>
+        </scene>
+        <!--Compra Venda View Controller-->
+        <scene sceneID="VfN-tg-RtC">
+            <objects>
+                <viewController storyboardIdentifier="CompraVendaViewController" id="24D-hG-SiU" customClass="CompraVendaViewController" customModule="iOS___BRQ_Invest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0G4-vf-sk7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqg-N4-n0G">
+                                <rect key="frame" x="24" y="219" width="366" height="405"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
+                                <color key="textColor" red="0.49411764705882355" green="0.82745098039215681" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Npd-Gh-8xU" customClass="UICustomButton" customModule="iOS___BRQ_Invest" customModuleProvider="target">
+                                <rect key="frame" x="131.5" y="779" width="151" height="43"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.55294117647058827" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="GBb-QI-0sH"/>
+                                    <constraint firstAttribute="height" constant="43" id="pXa-Gu-cEA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                <state key="normal" title="HOME">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="24D-hG-SiU" eventType="touchUpInside" id="dSc-tn-FGV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FnI-sp-uxY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FnI-sp-uxY" firstAttribute="trailing" secondItem="Mqg-N4-n0G" secondAttribute="trailing" constant="24" id="3A1-Th-Rg9"/>
+                            <constraint firstItem="Npd-Gh-8xU" firstAttribute="top" secondItem="Mqg-N4-n0G" secondAttribute="bottom" constant="155" id="AmD-m2-UD8"/>
+                            <constraint firstItem="FnI-sp-uxY" firstAttribute="bottom" secondItem="Npd-Gh-8xU" secondAttribute="bottom" constant="40" id="Jwo-ae-j5i"/>
+                            <constraint firstItem="Mqg-N4-n0G" firstAttribute="leading" secondItem="FnI-sp-uxY" secondAttribute="leading" constant="24" id="Qlo-Rw-wxI"/>
+                            <constraint firstItem="Npd-Gh-8xU" firstAttribute="centerX" secondItem="0G4-vf-sk7" secondAttribute="centerX" id="pVM-GT-poM"/>
+                            <constraint firstItem="Mqg-N4-n0G" firstAttribute="top" secondItem="FnI-sp-uxY" secondAttribute="top" constant="175" id="qxX-MK-fTR"/>
+                            <constraint firstItem="Mqg-N4-n0G" firstAttribute="centerX" secondItem="0G4-vf-sk7" secondAttribute="centerX" id="xo9-QP-2ow"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeButton" destination="Npd-Gh-8xU" id="Yaz-jJ-S09"/>
+                        <outlet property="mensageTextLabel" destination="Mqg-N4-n0G" id="1y1-UA-xzG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jsX-LK-RKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2310" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6nF-lk-C6g">

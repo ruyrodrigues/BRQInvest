@@ -9,7 +9,7 @@ import UIKit
 
 class UICustomButton: UIButton {
 
-    func settingButton() {
+    func setButton() {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 15
     }

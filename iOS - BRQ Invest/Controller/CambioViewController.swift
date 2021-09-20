@@ -57,7 +57,7 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         guard let user = user else { return }
         guard let userCurrencyAmount = user.userWallet[currencyISO] else { return }
         
-        currencyNameLabel.text = currency.name
+        currencyNameLabel.text = "\(currencyISO) - \(currency.name)"
         currencyVariationLabel.text = currency.variationString
         
         if currency.variation > 0 {
@@ -82,8 +82,8 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     
     func setCustomBorders() {
         cambioView.setBorderView()
-        sellButton.settingButton()
-        buyButton.settingButton()
+        sellButton.setButton()
+        buyButton.setButton()
     }
     
     
@@ -137,20 +137,32 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         guard let currency = currencySelected else { return }
         guard let stringInputAmount = AmountTextField.text else { return }
         guard let intInputAmount = Int(stringInputAmount) else { return }
+        guard let CVVC = storyboard?.instantiateViewController(identifier: "CompraVendaViewController") as? CompraVendaViewController else { return }
+        
+        var buttonAction: String
+        var message: String
         
         if sender.tag == 0 {
             //sell button
+            buttonAction = "vender"
             user.sell(quantity: intInputAmount, currencyISO, currency)
+            message = "Parabéns! Você acabou de \(buttonAction) \(intInputAmount) \(currencyISO) - \(currency.name), totalizando \(user.balanceLabel)"
         } else {
             //buy button
+            buttonAction = "comprar"
             user.buy(quantity: intInputAmount, currencyISO, currency)
+            message = "Parabéns! Você acabou de \(buttonAction) \(intInputAmount) \(currencyISO) - \(currency.name), totalizando \(user.balanceLabel)"
         }
-        
-        setLabels()
+        CVVC.message = message
+        CVVC.title = buttonAction.capitalized
+        navigationController?.pushViewController(CVVC, animated: true)
     }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        setLabels()
+    }
 }

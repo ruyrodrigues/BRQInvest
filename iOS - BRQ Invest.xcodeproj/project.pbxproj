@@ -19,6 +19,7 @@
 		CE75AC0626EA9BA800C86246 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75AC0526EA9BA800C86246 /* CellData.swift */; };
 		CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */; };
 		CEA75B2926EF9CE1001A0753 /* CambioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75B2826EF9CE1001A0753 /* CambioViewController.swift */; };
+		CEFABDF726F8C697002FCE20 /* CompraVendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFABDF626F8C697002FCE20 /* CompraVendaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CE75AC0526EA9BA800C86246 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		CEA75B1B26EBBF04001A0753 /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
 		CEA75B2826EF9CE1001A0753 /* CambioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CambioViewController.swift; sourceTree = "<group>"; };
+		CEFABDF626F8C697002FCE20 /* CompraVendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompraVendaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				CE75ABF526EA8F6A00C86246 /* HomeViewController.swift */,
 				CEA75B2826EF9CE1001A0753 /* CambioViewController.swift */,
+				CEFABDF626F8C697002FCE20 /* CompraVendaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE75ABF626EA8F6A00C86246 /* HomeViewController.swift in Sources */,
+				CEFABDF726F8C697002FCE20 /* CompraVendaViewController.swift in Sources */,
 				CEA75B1C26EBBF04001A0753 /* CurrencyData.swift in Sources */,
 				CE14EFFA26F239CA00190390 /* UICustomView.swift in Sources */,
 				CE14EFFE26F2681300190390 /* UserData.swift in Sources */,
