@@ -19,12 +19,10 @@ struct Currencies: Codable {
 
 struct Currency: Codable {
 
-    
     let name: String
     let buy: Double?
     let sell: Double?
     let variation: Double
-    
     var variationString: String {
         return String(format: "%.2f", variation) + "%"
     }
@@ -57,22 +55,6 @@ struct Currency: Codable {
         formatter.currencyCode = "BRL"
         return formatter
     }
-}
 
-
-struct Currency2: Codable {
-    var name: String
-    var buy: Double?
-    var sell: Double?
-    var variation: Double
-    var iso: String
-
-    init(name: String, buy: Double?, sell: Double?, variation: Double, iso: String) {
-        self.name = name
-        self.buy = buy
-        self.sell = sell
-        self.variation = variation
-        self.iso = iso
-    }
 }
 
