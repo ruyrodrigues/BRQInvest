@@ -10,10 +10,6 @@ import Foundation
 class User {
     
     var balance: Double
-    let defaultAPICurrencies = ["USD", "EUR", "GBP", "ARS", "AUD", "BTC", "CAD", "CNY", "JPY"]
-    
-    var userWallet: [String: Int]
-    
     var balanceLabel: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -23,6 +19,10 @@ class User {
         }
         return "R$0.00"
     }
+    
+    let defaultAPICurrencies = ["USD", "EUR", "GBP", "ARS", "AUD", "BTC", "CAD", "CNY", "JPY"]
+    
+    var userWallet: [String: Int]
     
     init() {
         self.balance = 1000
@@ -56,4 +56,5 @@ class User {
             balance -= price
         }
     }
+    
 }

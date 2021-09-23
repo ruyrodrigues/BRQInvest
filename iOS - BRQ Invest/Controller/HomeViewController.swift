@@ -19,6 +19,7 @@ class HomeViewController: UITableViewController {
     
     let user = User()
     
+    
     //MARK: - ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
