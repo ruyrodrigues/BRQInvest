@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CambioViewController: UIViewController, UITextFieldDelegate {
+class CambioViewController: UIViewController {
     
     // IBOutlets
     @IBOutlet var cambioView: UICustomView!
@@ -23,7 +23,7 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var sellButton: UICustomButton!
     @IBOutlet weak var buyButton: UICustomButton!
     
-    @IBOutlet weak var AmountTextField: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
     
     
     // Proprieties
@@ -35,7 +35,7 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        AmountTextField.delegate = self
+        amountTextField.delegate = self
         title = "Câmbio"
         
         setCustomBorders()
@@ -48,25 +48,19 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Settings
     func setTextField() {
-        AmountTextField.attributedPlaceholder =
+        amountTextField.attributedPlaceholder =
             NSAttributedString(string: "Quantidade", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
     func setLabels() {
-        guard let currency = currencySelected else { return }
-        guard let user = user else { return }
-        guard let userCurrencyAmount = user.userWallet[currencyISO] else { return }
+        guard let currency = currencySelected,
+              let user = user,
+              let userCurrencyAmount = user.userWallet[currencyISO] else { return }
         
         currencyNameLabel.text = "\(currencyISO) - \(currency.name)"
-        currencyVariationLabel.text = currency.variationString
         
-        if currency.variation > 0 {
-            currencyVariationLabel.textColor = UIColor.systemGreen
-        } else if currency.variation < 0 {
-            currencyVariationLabel.textColor = UIColor.systemRed
-        } else {
-            currencyVariationLabel.textColor = UIColor.white
-        }
+        currencyVariationLabel.setCollor(variation: currency.variation)
+        currencyVariationLabel.text = currency.variationString
         
         buyPriceLabel.text = ("Compra: " + currency.buyString)
         sellPriceLabel.text = ("Venda: " + currency.sellString)
@@ -77,7 +71,7 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
         checkButtonDisponility(buyButton, user, currency, iso: currencyISO)
         checkButtonDisponility(sellButton, user, currency, iso: currencyISO)
         
-        AmountTextField.text = ""
+        amountTextField.text = ""
     }
     
     func setCustomBorders() {
@@ -88,9 +82,9 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     
     
     func checkButtonDisponility(_ button: UICustomButton, _ user: User, _ currency: Currency, iso: String) {
-        guard let currencyBuyPrice = currency.buy else { return }
-        guard let currencyAmountInWallet = user.userWallet[iso] else { return }
-        guard let stringInputAmount = AmountTextField.text else { return }
+        guard let currencyBuyPrice = currency.buy,
+              let currencyAmountInWallet = user.userWallet[iso],
+              let stringInputAmount = amountTextField.text else { return }
         
         var totalPrice = Double()
         var userInput = Int()
@@ -120,42 +114,37 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
             button.disable()
         }
     }
-
-    //MARK: TextFieldDelegate
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let currency = currencySelected else { return }
-        guard let user = user else { return }
-        
-        checkButtonDisponility(buyButton, user, currency, iso: currencyISO)
-        checkButtonDisponility(sellButton, user, currency, iso: currencyISO)
-        
-    }
     
     // @IBAction
     @IBAction func ButtonPressed(_ sender: UICustomButton) {
-        guard let user = user else { return }
-        guard let currency = currencySelected else { return }
-        guard let stringInputAmount = AmountTextField.text else { return }
-        guard let intInputAmount = Int(stringInputAmount) else { return }
-        guard let CVVC = storyboard?.instantiateViewController(identifier: "CompraVendaViewController") as? CompraVendaViewController else { return }
+        guard let user = user,
+              let currency = currencySelected,
+              let stringInputAmount = amountTextField.text,
+              let intInputAmount = Int(stringInputAmount),
+              let storyboard = storyboard,
+              let CVVC = storyboard.instantiateViewController(identifier: "CompraVendaViewController") as? CompraVendaViewController,
+              let navigationController = navigationController else { return }
         
         var buttonAction: String
-        var message: String
         
         if sender.tag == 0 {
             //sell button
             buttonAction = "vender"
             user.sell(quantity: intInputAmount, currencyISO, currency)
-            message = "Parabéns! Você acabou de \(buttonAction) \(intInputAmount) \(currencyISO) - \(currency.name), totalizando \(user.balanceLabel)"
         } else {
             //buy button
             buttonAction = "comprar"
             user.buy(quantity: intInputAmount, currencyISO, currency)
-            message = "Parabéns! Você acabou de \(buttonAction) \(intInputAmount) \(currencyISO) - \(currency.name), totalizando \(user.balanceLabel)"
         }
-        CVVC.message = message
+        CVVC.message = createMessage(action: buttonAction, quantity: intInputAmount)
         CVVC.title = buttonAction.capitalized
-        navigationController?.pushViewController(CVVC, animated: true)
+        navigationController.pushViewController(CVVC, animated: true)
+    }
+    
+    func createMessage(action: String, quantity: Int) -> String {
+        guard let user = user,
+              let currency = currencySelected else { return ""}
+        return "Parabéns! Você acabou de \(action) \(quantity) \(currencyISO) - \(currency.name), totalizando \(user.balanceLabel)"
     }
     
     @objc func dismissKeyboard() {
@@ -164,5 +153,19 @@ class CambioViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         setLabels()
+    }
+    
+}
+
+
+extension CambioViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let currency = currencySelected,
+              let user = user else { return }
+        
+        checkButtonDisponility(buyButton, user, currency, iso: currencyISO)
+        checkButtonDisponility(sellButton, user, currency, iso: currencyISO)
+        
     }
 }

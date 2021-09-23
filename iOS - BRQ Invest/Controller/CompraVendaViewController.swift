@@ -9,7 +9,9 @@ import UIKit
 
 class CompraVendaViewController: UIViewController {
     
+    //Proprieties
     var message: String?
+    
     
     //Outlets
     @IBOutlet weak var mensageTextLabel: UILabel!
@@ -24,9 +26,12 @@ class CompraVendaViewController: UIViewController {
         homeButton.setButton()
     }
     
+    
     //IBAction
     @IBAction func homeButtonPressed(_ sender: UICustomButton) {
-        navigationController?.popToRootViewController(animated: true)
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
     
 }

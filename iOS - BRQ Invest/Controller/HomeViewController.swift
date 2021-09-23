@@ -59,13 +59,16 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cambioVC = storyboard?.instantiateViewController(identifier: "CambioViewController") as? CambioViewController {
+        guard let storyboard = storyboard,
+              let navigationController = navigationController else { return }
+        
+        if let cambioVC = storyboard.instantiateViewController(identifier: "CambioViewController") as? CambioViewController {
             cambioVC.currencySelected = currencies[indexPath.section]
             cambioVC.user = user
             guard let cell = tableView.cellForRow(at: indexPath) as? CellData else { return }
             guard let currencyISO = cell.currencyISO.text else { return }
             cambioVC.currencyISO = currencyISO
-            navigationController?.pushViewController(cambioVC, animated: true)
+            navigationController.pushViewController(cambioVC, animated: true)
         }
     }
     
@@ -97,14 +100,7 @@ class HomeViewController: UITableViewController {
             break
         }
         
-        if currency.variation > 0.0 {
-            cell.variationLabel.textColor = UIColor.systemGreen
-        } else if currency.variation == 0.0 {
-            cell.variationLabel.textColor = UIColor.white
-        } else {
-            cell.variationLabel.textColor = UIColor.systemRed
-        }
-        
+        cell.variationLabel.setCollor(variation: currency.variation)
         cell.variationLabel.text = currency.variationString
     }
     
